@@ -139,7 +139,7 @@
             font-size: 1.1em;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input, .form-group textarea, .form-group select {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
@@ -284,13 +284,14 @@
                     <input type="date" id="pickup-date" name="pickup_date" required>
                 </div>
                 <div class="form-group">
-                    <label for="pickup-time">Pickup Time (24-hour format):</label>
+                    <label for="pickup-time">Pickup Time:</label>
                     <input type="time" id="pickup-time" name="pickup_time" required>
                 </div>
                 <div class="form-group">
                     <label for="notes">Additional Notes (optional):</label>
                     <textarea id="notes" name="notes" rows="4"></textarea>
                 </div>
+                <input type="hidden" name="local_submission_time" id="local_submission_time">
                 <button type="submit" class="form-button">Book Now</button>
             </form>
         </div>
@@ -325,7 +326,7 @@
         const bookingForm = document.getElementById('booking-form');
         const bookingSound = document.getElementById('booking-sound');
         const pickupDateInput = document.getElementById('pickup-date');
-        const pickupTimeInput = document.getElementById('pickup-time');
+        const localSubmissionTimeInput = document.getElementById('local_submission_time');
 
         function setMinDateTime() {
             const now = new Date();
@@ -336,45 +337,25 @@
             const minutes = String(now.getMinutes()).padStart(2, '0');
 
             pickupDateInput.min = `${year}-${month}-${day}`;
-
-            pickupDateInput.addEventListener('change', () => {
-                const selectedDate = new Date(pickupDateInput.value);
-                const today = new Date();
-                if (selectedDate.toDateString() === today.toDateString()) {
-                    pickupTimeInput.min = `${hours}:${minutes}`;
-                } else {
-                    pickupTimeInput.min = '';
-                }
-            });
         }
-
         setMinDateTime();
 
         bookingForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Formsfree par jaane se rokta hai
-
-            // Basic validation
-            let isValid = true;
-            const requiredInputs = bookingForm.querySelectorAll('input:required');
-            requiredInputs.forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                }
-            });
-
-            if (isValid) {
-                // Sound bajao
-                bookingSound.play();
-                
-                // Message dikhao
+            // Get current local time and format it
+            const now = new Date();
+            const localTime = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'full', timeStyle: 'long' });
+            localSubmissionTimeInput.value = localTime;
+            
+            // Play sound first
+            bookingSound.play();
+            
+            // Use a short timeout to show the alert and reset the form
+            // after the sound has started playing.
+            setTimeout(() => {
                 alert('Your car booking has been successfully placed! We will contact you soon.');
-                
-                // Message ke baad form reset aur submit karo
-                bookingForm.submit();
                 bookingForm.reset();
-            } else {
-                alert('Please fill out all the mandatory fields.');
-            }
+                setMinDateTime();
+            }, 500); // 500ms delay to allow sound to play
         });
     </script>
 </body>
