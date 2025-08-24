@@ -1,0 +1,208 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #ADD8E6;
+    color: #000;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #708090;
+    font-weight: 700;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.8em;
+}
+
+h2 {
+    font-size: 2.4em;
+    margin-bottom: 25px;
+}
+
+.header-section {
+    background-color: #E0FFFF;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header-section p {
+    font-size: 1.2em;
+    color: #4F4F4F;
+    margin-top: 10px;
+}
+
+#hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#hero h2 {
+    font-size: 2.6em;
+    margin-bottom: 10px;
+}
+
+#hero p {
+    font-style: italic;
+    color: #555;
+    font-size: 1.3em;
+}
+
+.section {
+    padding: 40px 20px;
+    background-color: #F0F8FF;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tour-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 1.6em;
+    color: #2D3949;
+}
+
+.card p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+#booking-section {
+    background-color: #E0FFFF;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scorpio-img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+#booking-form {
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #4A5668;
+    font-size: 1.1em;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+.form-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #4F4F4F;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-button:hover {
+    background-color: #36454F;
+}
+
+#testimonials {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #F0F8FF;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 25px;
+    text-align: left;
+    font-style: italic;
+    color: #555;
+    font-size: 1.1em;
+}
+
+.testimonial-card .author {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 700;
+    color: #2D3949;
+}
+
+#contact {
+    background-color: #E0FFFF;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contact p strong {
+    color: #2D3949;
+    font-size: 1.1em;
+}
+
+footer {
+    background-color: #2D3949;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 1em;
+}
